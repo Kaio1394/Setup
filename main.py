@@ -1,13 +1,6 @@
 from app.utils.files_and_folder_utils import FilerAndFolderUtils
 from app.utils.excel_utils import ExcelUtils
-import tkinter as tk
-from tkinter import messagebox
-
-def show_message(msg: str):
-    root = tk.Tk()
-    root.withdraw()
-    messagebox.showerror("Configuration error", msg)
-    exit(1)
+from app.utils.alert_message_utils import show_message
 
 if '__main__' == __name__:
     """

@@ -11,7 +11,7 @@ class ExcelUtils:
             list_bots: list = []
             json_config, err = JsonUtils.read_config_file()
             if err:
-                return df, err
+                return [], err
             path_file = json_config[KEY_FILE_XLSX]
             df = pd.read_excel(path_file, TAB_EXECUTOR)
             list_bots = df.iloc[:, 0].dropna().tolist()
