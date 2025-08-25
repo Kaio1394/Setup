@@ -14,4 +14,15 @@ class FilerAndFolderUtils:
     @staticmethod
     def file_config_json_exists() -> bool:
         return os.path.isfile(f"{base_dir}/{PATH_FILE_CONFIG}")
+    
+    @staticmethod
+    def create_directory(path: str):
+        try:
+            os.mkdir(path)
+        except Exception as err:
+            return
+    
+    @staticmethod
+    def directory_exists(path: str) -> bool:
+        return os.path.isdir(path)
         
