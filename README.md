@@ -13,5 +13,10 @@ Each bot is executed in sequence using the specified variables, enabling central
 
 ---
 
-## 📁 Folder Structure
+## Excel File Example
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
