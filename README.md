@@ -19,4 +19,4 @@ Each bot is executed in sequence using the specified variables, enabling central
 
 ![alt text](image-1.png)
 
-![alt text](image-2.png)
+![alt text](image-2.png) 
