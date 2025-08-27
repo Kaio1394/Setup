@@ -1,0 +1,1 @@
+INSTALL = "pip install @LIBRARIES@"

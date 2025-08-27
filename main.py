@@ -49,7 +49,7 @@ if '__main__' == __name__:
     if err:
         show_message(err)
         
-    for bot in list_execution_bots:
-        success = execution_bot(Dict_xlsx_params_input, Dict_bot_input, Dict_bot_output)
+    for bot_path in list_execution_bots:
+        success = execution_bot(bot_path, Dict_xlsx_params_input, Dict_bot_input, Dict_bot_output)
         if not success:
             break
