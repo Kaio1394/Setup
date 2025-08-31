@@ -1,4 +1,5 @@
 from datetime import datetime
+from app.models.metric_model import MetricModel
 
-def insert_metric_access(bot_proccess_name: str, result_execution: str, user_execution: str, hostname: str, date_init: datetime, date_end: datetime) -> tuple[bool, str]:
+def insert_metric_access(metrics: MetricModel) -> tuple[bool, str]:
     return True, ""

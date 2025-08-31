@@ -8,6 +8,7 @@ from app.constants.errors import CONFIG_FILE_NOT_FOUND
 import getpass
 from datetime import datetime
 import socket
+from app.models.metric_model import MetricModel
 
 dir_main = ""
 dir_logs = ""
@@ -79,11 +80,13 @@ if '__main__' == __name__:
         msg_result = str(err)
     finally:
         datetime_end = datetime.now()  
-        insert_metric_successfull, error_insert = insert_metric_access(proccess_name, 
-                                                                       msg_result, 
-                                                                       getpass.getuser(), 
-                                                                       socket.gethostname(),
-                                                                       datetime_init, 
-                                                                       datetime_end)
+        metrics = MetricModel()
+        metrics.bot_proccess_name = proccess_name
+        metrics.result_execution = msg_result
+        metrics.user_execution = getpass.getuser()
+        metrics.hostname = socket.gethostname()
+        metrics.date_init = datetime_init
+        metrics.date_end = datetime_end
+        insert_metric_successfull, error_insert = insert_metric_access(metrics)
         if not insert_metric_successfull:
             show_message(f"Error to insert metric to access: {error_insert}")
