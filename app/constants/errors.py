@@ -1,1 +1,1 @@
-CONFIG_FILE_NOT_FOUND = "Config file not found."
+CONFIG_FILE_NOT_FOUND = "The file config.json not found!"
