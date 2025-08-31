@@ -33,13 +33,3 @@ class FilerAndFolderUtils:
     @staticmethod
     def directory_exists(path: str) -> bool:
         return os.path.isdir(path)
-    
-    @staticmethod
-    def get_list_requirements(path: str) -> tuple[list, str]:
-        try:
-            with open(path, 'r', encoding='utf=8') as file:
-                rows = file.readline()
-            list_rows = [row.strip() for row in rows]
-            return list_rows, ""
-        except Exception as err:
-            return [], str(err)

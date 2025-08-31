@@ -6,23 +6,23 @@ from app.variables.global_variables import *
 
 class ExcelUtils:
     @staticmethod
-    def load_xlsx_params_input() -> tuple[dict, str]:
+    def load_xlsx_params_input(path_json: str) -> tuple[dict, str]:
         try:
             df: pd.DataFrame
-            json_config, err = JsonUtils.read_config_file()
+            json_config, err = JsonUtils.read_config_file(path_json)
             if err:
                 return [], err
-            path_file = json_config[KEY_FILE_XLSX]
-            df = pd.read_excel(path_file, TAB_PARAMS_INPUT)
+            path_excel = json_config[KEY_FILE_XLSX]
+            df = pd.read_excel(path_excel, TAB_PARAMS_INPUT)
             return df[df.iloc[:, 1].notna()].set_index(df.columns[0])[df.columns[1]].to_dict(), ""
         except Exception as err:
             return {}, str(err)
         
     @staticmethod
-    def load_xlsx_params_config() -> tuple[dict, str]:
+    def load_xlsx_params_config(path_json: str) -> tuple[dict, str]:
         try:
             df: pd.DataFrame
-            json_config, err = JsonUtils.read_config_file()
+            json_config, err = JsonUtils.read_config_file(path_json)
             if err:
                 return [], err
             path_file = json_config[KEY_FILE_XLSX]
